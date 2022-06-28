@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['16.x']
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Use cached node_modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/package-lock.json') }}-${{ matrix.node-version }}
+          restore-keys: |
+            nodeModules-
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+        env:
+          CI: true
+
+      - name: build
+        run: npm run build:aws-cdk
+
+      - name: deploy
+        run: npm publish ./dist/package/aws-cdk-v2
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

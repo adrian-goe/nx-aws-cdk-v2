@@ -3,28 +3,28 @@
 
 <hr>
 
-# Codebrew Nx Plugins
+# Nx aws-cdk Plugin
 
-A collection of third-party Nx plugins.
+An nx plugin for the aws-cdk
 
 ## Table of Contents
 
-- [Codebrew Nx Plugins](#codebrew-nx-plugins)
+- [Nx aws-cdk Plugin](#nx-aws-cdk-plugin)
   - [Table of Contents](#table-of-contents)
-  - [Plugins](#plugins)
+  - [Plugin](#plugin)
   - [Maintainers](#maintainers)
   - [Contributing](#contributing)
   - [License](#license)
 
-## Plugins
+## Plugin
 
-| Plugin                                                    | Description                                                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Plugin                                                   | Description                                                                                   |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | [`@ago-dev/aws-cdk-v2`](./packages/aws-cdk-v2/README.md) | An Nx plugin for developing [aws-cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html) |
 
 ## Maintainers
 
-[@tienne](https://github.com/tienne)
+[@adrian-goe](https://github.com/adrian-goe)
 
 ## Contributing
 
@@ -36,4 +36,11 @@ If editing the README, please conform to the [standard-readme](https://github.co
 
 ## License
 
-This project is MIT licensed 2021 David Kwon.
+This project is MIT licensed 2022 Adrian Görisch
+
+## Special thanks
+
+This Project is based on [@tienne](https://github.com/tienne)'s
+[nx-plugins](https://github.com/codebrewlab/nx-plugins).
+
+Also thanks to [@therk](https://github.com/therk) for his work on migrating to cdk v2.

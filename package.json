@@ -6,7 +6,7 @@
     "email": "github@ago-dev.org"
   },
   "license": "MIT",
-  "homepage": "https://github.com/codebrewlab/nx-plugins",
+  "homepage": "https://github.com/ago-devlab/nx-plugins",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adrian-goe/nx-aws-cdk-v2"
@@ -15,7 +15,6 @@
     "nx": "nx",
     "lint-stage": "lint-staged",
     "commitlint": "commitlint",
-    "is-ci": "is-ci",
     "test": "nx test aws-cdk-v2",
     "lint": "nx lint aws-cdk-v2",
     "format": "nx format:write",
@@ -58,6 +57,19 @@
     "tslib": "^2.0.0",
     "typescript": "4.7.4"
   },
+  "files": [
+    "src/*",
+    "cli/*",
+    "lib/*",
+    "peers/*",
+    "scripts/*.js",
+    "stubs/*.stub.js",
+    "nesting/*",
+    "types/**/*",
+    "*.d.ts",
+    "*.css",
+    "*.js"
+  ],
   "lint-staged": {
     "*.{js,json,css,scss,md,ts,html,graphql}": [
       "npm run format --uncommitted"
