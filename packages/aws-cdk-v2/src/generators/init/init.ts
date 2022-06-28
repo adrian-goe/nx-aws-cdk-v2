@@ -2,7 +2,7 @@ import { addDependenciesToPackageJson, convertNxGenerator, formatFiles, Generato
 import { jestInitGenerator } from '@nrwl/jest';
 
 import { InitGeneratorSchema } from './schema';
-import { CDK_ESLINT_VERSION, CDK_VERSION } from '../../utils/cdk-shared';
+import { CDK_CONSTRUCTS_VERSION, CDK_ESLINT_VERSION, CDK_VERSION } from '../../utils/cdk-shared';
 
 function normalizeOptions(schema: InitGeneratorSchema) {
   return {
@@ -24,6 +24,7 @@ export async function initGenerator(host: Tree, options: InitGeneratorSchema) {
     {
       'aws-cdk': CDK_VERSION,
       'aws-cdk-lib': CDK_VERSION,
+      constructs: CDK_CONSTRUCTS_VERSION,
     },
     {
       'eslint-plugin-cdk': CDK_ESLINT_VERSION,

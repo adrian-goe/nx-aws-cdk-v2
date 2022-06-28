@@ -114,6 +114,10 @@ export async function applicationGenerator(host: Tree, options: ApplicationSchem
         executor: '@ago-dev/nx-aws-cdk-v2:destroy',
         options: {},
       },
+      bootstrap: {
+        executor: '@ago-dev/nx-aws-cdk-v2:bootstrap',
+        options: {},
+      },
     },
     tags: normalizedOptions.parsedTags,
   };

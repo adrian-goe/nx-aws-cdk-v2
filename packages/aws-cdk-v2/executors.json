@@ -10,6 +10,11 @@
       "implementation": "./src/executors/destroy/destroy",
       "schema": "./src/executors/destroy/schema.json",
       "description": "destroy executor"
+    },
+    "bootstrap": {
+      "implementation": "./src/executors/bootstrap/bootstrap",
+      "schema": "./src/executors/bootstrap/schema.json",
+      "description": "bootstrap executor"
     }
   }
 }
