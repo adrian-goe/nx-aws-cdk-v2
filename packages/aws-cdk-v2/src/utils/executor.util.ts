@@ -3,11 +3,12 @@ import { exec } from 'child_process';
 import { DeployExecutorSchema } from '../executors/deploy/schema';
 import { ParsedExecutorInterface } from '../interfaces/parsed-executor.interface';
 import { logger } from '@nrwl/devkit';
+import { BootstrapExecutorSchema } from '../executors/bootstrap/schema';
 
 export const executorPropKeys = ['stacks'];
 export const LARGE_BUFFER = 1024 * 1000000;
 
-export function parseArgs(options: DeployExecutorSchema): Record<string, string> {
+export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchema): Record<string, string> {
   const keys = Object.keys(options);
   return keys
     .filter((prop) => executorPropKeys.indexOf(prop) < 0)

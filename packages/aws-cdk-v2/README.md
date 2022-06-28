@@ -63,11 +63,14 @@ Options:
 
 ### Targets
 
-Generated applications expose several functions to the CLI that allow users to deploy, destroy and so on.
+Generated applications expose several functions to the CLI that allow users to deploy, destroy and boostrap.
 
 ```shell
 nx deploy myApp
 nx destroy myApp
+nx bootstrap --profile=profile
+#see how to use aws environments https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html#bootstrapping-howto-cli
+nx bootstrap aws://123456789012/us-east-1
 ```
 
 ## Maintainers
