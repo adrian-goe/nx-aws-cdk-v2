@@ -1,0 +1,24 @@
+{
+  "name": "@ago-dev/aws-cdk-v2",
+  "version": "2.0.0",
+  "main": "src/index.js",
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "keywords": [
+    "nx",
+    "aws-cdk",
+    "monorepo",
+    "aws cdk",
+    "Node"
+  ],
+  "ng-update": {
+    "requirements": {},
+    "migrations": "./migrations.json"
+  },
+  "author": "David Kwon",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codebrewlab/nx-plugins.git"
+  },
+  "license": "MIT"
+}

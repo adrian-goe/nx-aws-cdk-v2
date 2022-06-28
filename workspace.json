@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "aws-cdk-v2": "packages/aws-cdk-v2",
+    "aws-cdk-v2-e2e": "e2e/aws-cdk-v2-e2e"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Destroy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "stacks": {
+      "type": "string",
+      "description": "use destroy named STACKS"
+    }
+  },
+  "required": []
+}

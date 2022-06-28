@@ -1,0 +1,25 @@
+{
+  "schematics": {
+    "update-2.0.0": {
+      "version": "2.0.0",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-2-0-0/update-2-0-0"
+    },
+    "migrate-to-cdk-2": {
+      "version": "2.0.0",
+      "description": "Update AWS CDK to v2: rename '@aws-cdk/core' to 'aws-cdk-lib' and '@aws-cdk/assert' to 'aws-cdk'",
+      "factory": "./src/migrations/update-2-0-0/migrate-to-cdk-2"
+    }
+  },
+  "packageJsonUpdates": {
+    "2.0.0": {
+      "version": "2.0.0",
+      "packages": {
+        "eslint-plugin-cdk": {
+          "version": "^1.7.0",
+          "alwaysAddToPackageJson": false
+        }
+      }
+    }
+  }
+}

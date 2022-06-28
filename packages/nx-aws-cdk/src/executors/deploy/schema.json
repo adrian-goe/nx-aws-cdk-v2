@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "deploy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "stacks": {
+      "type": "string",
+      "description": "use deploy named STACKS"
+    }
+  },
+  "required": []
+}

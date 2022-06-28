@@ -1,0 +1,66 @@
+{
+  "name": "@ago-dev/aws-cdk-v2",
+  "description": "nx aws-cdk-v2 plugin",
+  "author": {
+    "name": "Adrian Görisch",
+    "email": "github@ago-dev.org"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/codebrewlab/nx-plugins",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebrewlab/nx-plugins.git"
+  },
+  "scripts": {
+    "nx": "nx",
+    "lint-stage": "lint-staged",
+    "commitlint": "commitlint",
+    "is-ci": "is-ci",
+    "test": "nx test aws-cdk-v2",
+    "lint": "nx lint aws-cdk-v2",
+    "format": "nx format:write",
+    "e2e:aws-cdk": "nx e2e aws-cdk-v2-e2e",
+    "build:aws-cdk": "nx build aws-cdk-v2",
+    "link:aws-cdk": "cd dist/packages/aws-cdk-v2 && npm link"
+  },
+  "private": true,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "^0.1302.4",
+    "@angular-devkit/core": "^14.0.3",
+    "@angular-devkit/schematics": "^13.2.4",
+    "@commitlint/cli": "^13.2.1",
+    "@nrwl/cli": "14.3.6",
+    "@nrwl/devkit": "14.3.6",
+    "@nrwl/eslint-plugin-nx": "14.3.6",
+    "@nrwl/jest": "14.3.6",
+    "@nrwl/js": "14.3.6",
+    "@nrwl/linter": "14.3.6",
+    "@nrwl/node": "14.3.6",
+    "@nrwl/nx-plugin": "14.3.6",
+    "@nrwl/workspace": "14.3.6",
+    "@swc-node/register": "^1.4.2",
+    "@swc/core": "^1.2.173",
+    "@types/jest": "27.4.1",
+    "@types/node": "14.14.33",
+    "@typescript-eslint/eslint-plugin": "5.24.0",
+    "@typescript-eslint/parser": "5.24.0",
+    "dotenv": "10.0.0",
+    "eslint": "8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "jest": "27.5.1",
+    "nx": "14.3.6",
+    "prettier": "2.7.1",
+    "ts-jest": "27.1.4",
+    "ts-node": "10.8.1",
+    "tslib": "^2.0.0",
+    "typescript": "4.7.4"
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,md,ts,html,graphql}": [
+      "npm run format --uncommitted"
+    ]
+  }
+}
