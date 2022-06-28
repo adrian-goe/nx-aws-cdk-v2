@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.1400.3",
-    "@angular-devkit/core": "^14.0.3",
-    "@angular-devkit/schematics": "^13.2.4",
+    "@angular-devkit/core": "14.0.3",
+    "@angular-devkit/schematics": "14.0.3",
     "@commitlint/cli": "^13.2.1",
     "@nrwl/cli": "14.3.6",
     "@nrwl/devkit": "14.3.6",
