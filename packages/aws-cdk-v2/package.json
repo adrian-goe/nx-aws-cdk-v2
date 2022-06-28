@@ -1,5 +1,5 @@
 {
-  "name": "@ago-dev/aws-cdk-v2",
+  "name": "@ago-dev/nx-aws-cdk-v2",
   "version": "1.0.0",
   "main": "src/index.js",
   "generators": "./generators.json",

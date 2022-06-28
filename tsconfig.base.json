@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ago-dev/aws-cdk-v2": ["packages/aws-cdk-v2/src/index.ts"]
+      "@ago-dev/nx-aws-cdk-v2": ["packages/aws-cdk-v2/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

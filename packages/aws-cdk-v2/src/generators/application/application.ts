@@ -107,11 +107,11 @@ export async function applicationGenerator(host: Tree, options: ApplicationSchem
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       deploy: {
-        executor: '@ago-dev/aws-cdk-v2:deploy',
+        executor: '@ago-dev/nx-aws-cdk-v2:deploy',
         options: {},
       },
       destroy: {
-        executor: '@ago-dev/aws-cdk-v2:destroy',
+        executor: '@ago-dev/nx-aws-cdk-v2:destroy',
         options: {},
       },
     },

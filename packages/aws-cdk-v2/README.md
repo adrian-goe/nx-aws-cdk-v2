@@ -1,13 +1,13 @@
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-[![@ago-dev/aws-cdk-v2](https://img.shields.io/badge/%40ago-dev-nx--aws--cdk-green)](https://github.com/ago-devlab/nx-plugins/tree/master/packages/aws-cdk-v2)
+[![@ago-dev/nx-aws-cdk-v2](https://img.shields.io/badge/%40adrian--goe-nx--aws--cdk-green)](https://github.com/adrian-goe/nx-aws-cdk-v2/tree/master/packages/aws-cdk-v2)
 [![Typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://www.typescriptlang.org/)
-[![LICENSE](https://img.shields.io/npm/l/@ago-dev/aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/aws-cdk-v2)
-[![npm version](https://img.shields.io/npm/v/@ago-dev/aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/aws-cdk-v2)
-[![Downloads](https://img.shields.io/npm/dm/@ago-dev/aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/aws-cdk-v2)
+[![LICENSE](https://img.shields.io/npm/l/@ago-dev/nx-aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/nx-aws-cdk-v2)
+[![npm version](https://img.shields.io/npm/v/@ago-dev/nx-aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/nx-aws-cdk-v2)
+[![Downloads](https://img.shields.io/npm/dm/@ago-dev/nx-aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/nx-aws-cdk-v2)
 
 <hr>
 
-# @ago-dev/aws-cdk-v2
+# @ago-dev/nx-aws-cdk-v2
 
 An Nx plugin for developing [aws-cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html)
 
@@ -25,10 +25,10 @@ An Nx plugin for developing [aws-cdk](https://docs.aws.amazon.com/cdk/latest/gui
 
 ```shell
 # npm
-npm install --save-dev @ago-dev/aws-cdk-v2
+npm install --save-dev @ago-dev/nx-aws-cdk-v2
 
 # yarn
-yarn add --dev @ago-dev/aws-cdk-v2
+yarn add --dev @ago-dev/nx-aws-cdk-v2
 ```
 
 ## Usage
@@ -40,13 +40,13 @@ Create AWS CDK v2 Application
 More details on AWS CDK v2 can be found on https://docs.aws.amazon.com/cdk/v2/guide/home.html
 
 ```shell
-nx generate @ago-dev/aws-cdk-v2:application myApp
+nx generate @ago-dev/nx-aws-cdk-v2:application myApp
 ```
 
 you can customize it further by passing these options:
 
 ```
-nx generate @ago-dev/aws-cdk-v2:application [name] [options,...]
+nx generate @ago-dev/nx-aws-cdk-v2:application [name] [options,...]
 
 Options:
   --name

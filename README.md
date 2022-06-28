@@ -1,4 +1,4 @@
-![NPM](https://img.shields.io/npm/l/@ago-dev/aws-cdk-v2)
+![NPM](https://img.shields.io/npm/l/@ago-dev/nx-aws-cdk-v2)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 <hr>
@@ -18,9 +18,9 @@ An nx plugin for the aws-cdk
 
 ## Plugin
 
-| Plugin                                                   | Description                                                                                   |
-| -------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [`@ago-dev/aws-cdk-v2`](./packages/aws-cdk-v2/README.md) | An Nx plugin for developing [aws-cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html) |
+| Plugin                                                      | Description                                                                                   |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [`@ago-dev/nx-aws-cdk-v2`](./packages/aws-cdk-v2/README.md) | An Nx plugin for developing [aws-cdk](https://docs.aws.amazon.com/cdk/latest/guide/home.html) |
 
 ## Maintainers
 

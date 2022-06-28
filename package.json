@@ -1,5 +1,5 @@
 {
-  "name": "@ago-dev/aws-cdk-v2",
+  "name": "@ago-dev/nx-aws-cdk-v2",
   "description": "nx aws-cdk-v2 plugin",
   "author": {
     "name": "Adrian Görisch",
