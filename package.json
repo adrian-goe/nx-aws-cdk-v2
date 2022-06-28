@@ -9,7 +9,7 @@
   "homepage": "https://github.com/codebrewlab/nx-plugins",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codebrewlab/nx-plugins.git"
+    "url": "git+https://github.com/adrian-goe/nx-aws-cdk-v2"
   },
   "scripts": {
     "nx": "nx",

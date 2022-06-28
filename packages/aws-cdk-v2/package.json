@@ -15,10 +15,10 @@
     "requirements": {},
     "migrations": "./migrations.json"
   },
-  "author": "David Kwon",
+  "author": "Adrian Görisch",
   "repository": {
     "type": "git",
-    "url": "git@github.com:codebrewlab/nx-plugins.git"
+    "url": "git@github.com:adrian-goe/nx-aws-cdk-v2"
   },
   "license": "MIT"
 }
