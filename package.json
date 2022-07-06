@@ -30,9 +30,9 @@
     "tslib": "2.4.0"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1400.4",
-    "@angular-devkit/core": "14.0.4",
-    "@angular-devkit/schematics": "14.0.4",
+    "@angular-devkit/architect": "0.1400.5",
+    "@angular-devkit/core": "14.0.5",
+    "@angular-devkit/schematics": "14.0.5",
     "@commitlint/cli": "17.0.3",
     "@nrwl/cli": "14.3.6",
     "@nrwl/devkit": "14.3.6",
