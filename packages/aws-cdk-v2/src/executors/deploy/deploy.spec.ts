@@ -34,7 +34,7 @@ describe('aws-cdk-v2 deploy Executor', () => {
   });
 
   it('run cdk deploy command stack', async () => {
-    const option: any = Object.assign({}, options);
+    const option: DeployExecutorSchema = Object.assign({}, options);
     const stackName = 'test';
     option['stacks'] = stackName;
     await executor(option, context);
@@ -51,7 +51,7 @@ describe('aws-cdk-v2 deploy Executor', () => {
   });
 
   it('run cdk deploy command context options', async () => {
-    const option: any = Object.assign({}, options);
+    const option: DeployExecutorSchema = Object.assign({}, options);
     const contextOptionString = 'key=value';
     option['context'] = contextOptionString;
     await executor(option, context);

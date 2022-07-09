@@ -30,7 +30,7 @@ export function createCommand(command: string, options: ParsedExecutorInterface)
 }
 
 export function runCommandProcess(command: string, cwd: string): Promise<boolean> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     logger.debug(`Executing command: ${command}`);
 
     const childProcess = exec(command, {

@@ -36,7 +36,7 @@ describe('aws-cdk-v2 Bootstrap Executor', () => {
   });
 
   it('run cdk bootstrap command profile', async () => {
-    const option: any = Object.assign({}, options);
+    const option: BootstrapExecutorSchema = Object.assign({}, options);
     const profile = 'prod';
     option['profile'] = profile;
     await executor(option, context);
