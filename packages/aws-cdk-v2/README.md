@@ -63,7 +63,7 @@ Options:
 
 ### Targets
 
-Generated applications expose several functions to the CLI that allow users to deploy, destroy and boostrap.
+Generated applications expose several functions to the CLI that allow users to deploy, destroy and bootstrap.
 
 ```shell
 nx deploy myApp

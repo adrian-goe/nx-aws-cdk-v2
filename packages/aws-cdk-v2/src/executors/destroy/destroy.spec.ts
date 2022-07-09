@@ -36,7 +36,7 @@ describe('aws-cdk-v2 Destroy Executor', () => {
   });
 
   it('run cdk destroy command stack', async () => {
-    const option: any = Object.assign({}, options);
+    const option: DestroyExecutorSchema = Object.assign({}, options);
     const stackName = 'test';
     option['stacks'] = stackName;
     await executor(option, context);

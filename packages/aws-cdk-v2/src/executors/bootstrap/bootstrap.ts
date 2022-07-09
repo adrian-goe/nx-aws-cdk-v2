@@ -35,6 +35,7 @@ function normalizeOptions(options: BootstrapExecutorSchema, context: ExecutorCon
     profile = `--profile ${options.profile}`;
   }
 
+  // eslint-disable-next-line no-unsafe-optional-chaining
   const { sourceRoot, root } = context?.workspace?.projects[context.projectName];
 
   return {

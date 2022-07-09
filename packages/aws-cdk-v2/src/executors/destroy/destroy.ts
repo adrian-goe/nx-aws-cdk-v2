@@ -35,6 +35,7 @@ function normalizeOptions(options: DestroyExecutorSchema, context: ExecutorConte
     stacks = options.stacks;
   }
 
+  // eslint-disable-next-line no-unsafe-optional-chaining
   const { sourceRoot, root } = context?.workspace?.projects[context.projectName];
 
   return {

@@ -1,7 +1,7 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "ignorePatterns": ["**/*", "**/*.json"],
+  "plugins": ["@nrwl/nx", "json"],
   "extends": ["prettier"],
   "overrides": [
     {
