@@ -1,5 +1,5 @@
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-[![@ago-dev/nx-aws-cdk-v2](https://img.shields.io/badge/%40ago-dev-nx--aws--cdk-green)](https://github.com/ago-devlab/nx-plugins/tree/master/packages/aws-cdk-v2)
+[![@ago-dev/nx-aws-cdk-v2](https://img.shields.io/badge/%40ago-dev-nx--aws--cdk-green)](https://github.com/ago-dev/nx-plugins/tree/master/packages/aws-cdk-v2)
 [![Typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://www.typescriptlang.org/)
 [![LICENSE](https://img.shields.io/npm/l/@ago-dev/nx-aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/nx-aws-cdk-v2)
 [![npm version](https://img.shields.io/npm/v/@ago-dev/nx-aws-cdk-v2.svg)](https://www.npmjs.com/package/@ago-dev/nx-aws-cdk-v2)
