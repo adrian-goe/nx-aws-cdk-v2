@@ -68,9 +68,9 @@ Generated applications expose several functions to the CLI that allow users to d
 ```shell
 nx deploy myApp
 nx destroy myApp
-nx bootstrap --profile=profile
+nx bootstrap myApp --profile=profile
 #see how to use aws environments https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html#bootstrapping-howto-cli
-nx bootstrap aws://123456789012/us-east-1
+nx bootstrap myApp aws://123456789012/us-east-1
 ```
 
 ## Maintainers
