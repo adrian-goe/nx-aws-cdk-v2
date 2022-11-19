@@ -1,12 +1,12 @@
 import * as childProcess from 'child_process';
 import * as path from 'path';
 
-import {logger} from '@nrwl/devkit';
+import { logger } from '@nrwl/devkit';
 
-import {DestroyExecutorSchema} from './schema';
+import { DestroyExecutorSchema } from './schema';
 import executor from './destroy';
-import {LARGE_BUFFER} from '../../utils/executor.util';
-import {mockExecutorContext} from '../../utils/testing';
+import { LARGE_BUFFER } from '../../utils/executor.util';
+import { mockExecutorContext } from '../../utils/testing';
 
 const options: DestroyExecutorSchema = {};
 
@@ -32,7 +32,9 @@ describe('aws-cdk-v2 Destroy Executor', () => {
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy`
+    );
   });
 
   it('run cdk destroy command stack', async () => {
@@ -43,13 +45,15 @@ describe('aws-cdk-v2 Destroy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-            `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`,
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`
+    );
   });
 });

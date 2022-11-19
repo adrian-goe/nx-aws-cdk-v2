@@ -1,12 +1,12 @@
 import * as childProcess from 'child_process';
 import * as path from 'path';
 
-import {logger} from '@nrwl/devkit';
+import { logger } from '@nrwl/devkit';
 
-import {BootstrapExecutorSchema} from './schema';
+import { BootstrapExecutorSchema } from './schema';
 import executor from './bootstrap';
-import {LARGE_BUFFER} from '../../utils/executor.util';
-import {mockExecutorContext} from '../../utils/testing';
+import { LARGE_BUFFER } from '../../utils/executor.util';
+import { mockExecutorContext } from '../../utils/testing';
 
 const options: BootstrapExecutorSchema = {};
 
@@ -32,7 +32,9 @@ describe('aws-cdk-v2 Bootstrap Executor', () => {
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap`
+    );
   });
 
   it('run cdk bootstrap command profile', async () => {
@@ -49,6 +51,8 @@ describe('aws-cdk-v2 Bootstrap Executor', () => {
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap --profile ${profile}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap --profile ${profile}`
+    );
   });
 });

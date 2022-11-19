@@ -1,11 +1,11 @@
 import * as path from 'path';
 import * as childProcess from 'child_process';
-import {logger} from '@nrwl/devkit';
+import { logger } from '@nrwl/devkit';
 
 import executor from './deploy';
-import {DeployExecutorSchema} from './schema';
-import {LARGE_BUFFER} from '../../utils/executor.util';
-import {mockExecutorContext} from '../../utils/testing';
+import { DeployExecutorSchema } from './schema';
+import { LARGE_BUFFER } from '../../utils/executor.util';
+import { mockExecutorContext } from '../../utils/testing';
 
 const options: DeployExecutorSchema = {};
 
@@ -30,7 +30,9 @@ describe('aws-cdk-v2 deploy Executor', () => {
         maxBuffer: LARGE_BUFFER,
       })
     );
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy`
+    );
   });
 
   it('run cdk deploy command stack', async () => {
@@ -47,7 +49,9 @@ describe('aws-cdk-v2 deploy Executor', () => {
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${stackName}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${stackName}`
+    );
   });
 
   it('run cdk deploy command context options', async () => {
@@ -64,6 +68,8 @@ describe('aws-cdk-v2 deploy Executor', () => {
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`
+    );
   });
 });
