@@ -35,7 +35,7 @@ jobs:
           CI: true
 
       - name: Set Version
-        run: npm --prefix ./packages/aws-cdk-v2 version ${{ github.ref }}
+        run: npm --prefix ./packages/aws-cdk-v2 version ${{ github.ref_name }}
 
       - name: build
         run: npm run build:aws-cdk
