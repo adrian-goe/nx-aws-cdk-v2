@@ -55,3 +55,5 @@ describe('aws-cdk-v2 e2e', () => {
     }, 120000);
   });
 });
+node /Users/adrian/Documents/dev/nx-tools/nx-pluginsnode_modules/aws-cdk/bin/cdk.js bootstrap --profile prod
+node /Users/adrian/Documents/dev/nx-tools/nx-plugins/node_modules/aws-cdk/bin/cdk.js bootstrap --profile prod
