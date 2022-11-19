@@ -34,6 +34,9 @@ jobs:
         env:
           CI: true
 
+      - name: Set Version
+        run: npm --prefix ./packages/aws-cdk-v2 version ${{ github.ref }}-beta
+
       - name: build
         run: npm run build:aws-cdk
 

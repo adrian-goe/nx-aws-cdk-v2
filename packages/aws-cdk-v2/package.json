@@ -1,6 +1,6 @@
 {
   "name": "@ago-dev/nx-aws-cdk-v2",
-  "version": "1.3.0-beta.1",
+  "version": "1.3.0",
   "main": "src/index.js",
   "generators": "./generators.json",
   "executors": "./executors.json",
