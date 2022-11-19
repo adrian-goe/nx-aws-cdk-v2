@@ -16,7 +16,14 @@ export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchem
 }
 
 export function createCommand(command: string, options: ParsedExecutorInterface): string {
-  const commands = [`cdk ${command}`];
+  console.log('OptionsParsedExecutorInterface', JSON.stringify(options));
+  const NX_WORKSPACE_ROOT = process.env.NX_WORKSPACE_ROOT ?? '';
+  if (!NX_WORKSPACE_ROOT) {
+    throw new Error('CDK not Found');
+  }
+  const nodeCommandWithRelativePath = `node ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js ${command}`;
+  console.log('nodeCommandWithRelativePath', nodeCommandWithRelativePath);
+  const commands = [nodeCommandWithRelativePath];
 
   if (typeof options.stacks === 'string') {
     commands.push(options.stacks);

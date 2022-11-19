@@ -24,7 +24,7 @@ describe('aws-cdk-v2 Destroy Executor', () => {
     await executor(options, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      'cdk destroy',
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy`,
       expect.objectContaining({
         cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
         env: process.env,
@@ -32,23 +32,28 @@ describe('aws-cdk-v2 Destroy Executor', () => {
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: cdk destroy`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy`
+    );
   });
 
   it('run cdk destroy command stack', async () => {
     const option: DestroyExecutorSchema = Object.assign({}, options);
     const stackName = 'test';
     option['stacks'] = stackName;
+
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `cdk destroy ${stackName}`,
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: cdk destroy ${stackName}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`
+    );
   });
 });

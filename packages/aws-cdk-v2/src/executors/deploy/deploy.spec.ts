@@ -23,14 +23,16 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(options, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      'cdk deploy',
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy`,
       expect.objectContaining({
         cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: cdk deploy`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy`
+    );
   });
 
   it('run cdk deploy command stack', async () => {
@@ -40,14 +42,16 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `cdk deploy ${stackName}`,
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${stackName}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: cdk deploy ${stackName}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${stackName}`
+    );
   });
 
   it('run cdk deploy command context options', async () => {
@@ -57,13 +61,15 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `cdk deploy --context ${contextOptionString}`,
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: cdk deploy --context ${contextOptionString}`);
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`
+    );
   });
 });
