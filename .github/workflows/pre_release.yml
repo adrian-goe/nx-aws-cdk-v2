@@ -2,7 +2,7 @@ name: CI
 
 on:
   release:
-    types: [released]
+    types: [prereleased]
 
 jobs:
   publish:
@@ -38,6 +38,6 @@ jobs:
         run: npm run build:aws-cdk
 
       - name: deploy
-        run: npm publish ./dist/packages/aws-cdk-v2 --access public
+        run: npm publish ./dist/packages/aws-cdk-v2 --access public --tag beta
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

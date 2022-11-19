@@ -41,7 +41,9 @@ describe('aws-cdk-v2 e2e', () => {
 
       await runNxCommandAsync(`generate @ago-dev/nx-aws-cdk-v2:application ${plugin} --tags e2etag,e2ePackage`);
       await runNxCommandAsync(`bootstrap ${plugin} --profile=test123`);
-      expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap ${plugin} --profile=test123`);
+      expect(logger.debug).toHaveBeenLastCalledWith(
+        `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap ${plugin} --profile=test123`
+      );
     }, 120000);
 
     it('should try to bootstrap with aws environments', async () => {
@@ -49,7 +51,9 @@ describe('aws-cdk-v2 e2e', () => {
 
       await runNxCommandAsync(`generate @ago-dev/nx-aws-cdk-v2:application ${plugin} --tags e2etag,e2ePackage`);
       await runNxCommandAsync(`bootstrap ${plugin} aws://123456789012/us-east-1`);
-      expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap aws://123456789012/us-east-1`);
+      expect(logger.debug).toHaveBeenLastCalledWith(
+        `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js bootstrap aws://123456789012/us-east-1`
+      );
     }, 120000);
   });
 });
