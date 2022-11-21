@@ -3,5 +3,4 @@ export interface ParsedExecutorInterface {
   stacks?: string[];
   sourceRoot: string;
   root: string;
-  env?: Record<string, string>;
 }
