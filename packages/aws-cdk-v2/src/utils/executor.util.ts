@@ -73,7 +73,9 @@ export function runCommandProcess(command: string, cwd: string): Promise<boolean
 
       process.removeListener('exit', processExitListener);
 
-      process.stdin.end();
+      if (process.stdin.end) {
+        process.stdin.end();
+      }
       process.stdin.removeListener('data', processExitListener);
     });
   });
