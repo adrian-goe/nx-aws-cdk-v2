@@ -73,7 +73,7 @@ export function runCommandProcess(command: string, cwd: string): Promise<boolean
 
       process.removeListener('exit', processExitListener);
 
-      if (process.stdin.end) {
+      if (process.stdin.isTTY) {
         process.stdin.end();
       }
       process.stdin.removeListener('data', processExitListener);
