@@ -92,4 +92,22 @@ describe('aws-cdk-v2 deploy Executor', () => {
       `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${contextCmd}`
     );
   });
+
+  it('run cdk deploy command with boolean context option', async () => {
+    const option: DeployExecutorSchema = Object.assign({}, options);
+    option['context'] = true;
+    await executor(option, context);
+
+    expect(childProcess.exec).toHaveBeenCalledWith(
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context true`,
+      expect.objectContaining({
+        env: process.env,
+        maxBuffer: LARGE_BUFFER,
+      })
+    );
+
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context true`
+    );
+  });
 });
