@@ -30,7 +30,6 @@ export function createCommand(command: string, options: ParsedExecutorInterface)
   }
 
   for (const arg in options.parseArgs) {
-    //options.parseArgs[arg] might be an array
     const parsedArg = options.parseArgs[arg];
     if (typeof parsedArg === 'string') {
       commands.push(`--${arg} ${parsedArg}`);
