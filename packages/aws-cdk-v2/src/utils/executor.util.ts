@@ -8,7 +8,7 @@ import { BootstrapExecutorSchema } from '../executors/bootstrap/schema';
 export const executorPropKeys = ['stacks'];
 export const LARGE_BUFFER = 1024 * 1000000;
 
-export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchema): Record<string, string> {
+export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchema): Record<string, string | string[]> {
   const keys = Object.keys(options);
   return keys
     .filter((prop) => executorPropKeys.indexOf(prop) < 0)
@@ -30,7 +30,14 @@ export function createCommand(command: string, options: ParsedExecutorInterface)
   }
 
   for (const arg in options.parseArgs) {
-    commands.push(`--${arg} ${options.parseArgs[arg]}`);
+    const parsedArg = options.parseArgs[arg];
+    if (Array.isArray(parsedArg)) {
+      parsedArg.forEach((value) => {
+        commands.push(`--${arg} ${value}`);
+      });
+    } else {
+      commands.push(`--${arg} ${parsedArg}`);
+    }
   }
 
   return commands.join(' ');

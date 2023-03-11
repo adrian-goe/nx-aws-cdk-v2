@@ -1,5 +1,5 @@
 export interface ParsedExecutorInterface {
-  parseArgs?: Record<string, string>;
+  parseArgs?: Record<string, string | string[]>;
   stacks?: string[];
   sourceRoot: string;
   root: string;

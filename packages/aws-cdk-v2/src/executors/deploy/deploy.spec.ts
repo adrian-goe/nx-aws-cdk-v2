@@ -72,4 +72,42 @@ describe('aws-cdk-v2 deploy Executor', () => {
       `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`
     );
   });
+
+  it('run cdk deploy command with multiple context options', async () => {
+    const option: DeployExecutorSchema = Object.assign({}, options);
+    const contextOptions = ['firstKey=firstValue', 'secondKey=secondValue'];
+    option['context'] = contextOptions;
+    await executor(option, context);
+
+    const contextCmd = contextOptions.map((option) => `--context ${option}`).join(' ');
+    expect(childProcess.exec).toHaveBeenCalledWith(
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${contextCmd}`,
+      expect.objectContaining({
+        env: process.env,
+        maxBuffer: LARGE_BUFFER,
+      })
+    );
+
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${contextCmd}`
+    );
+  });
+
+  it('run cdk deploy command with boolean context option', async () => {
+    const option: DeployExecutorSchema = Object.assign({}, options);
+    option['context'] = true;
+    await executor(option, context);
+
+    expect(childProcess.exec).toHaveBeenCalledWith(
+      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context true`,
+      expect.objectContaining({
+        env: process.env,
+        maxBuffer: LARGE_BUFFER,
+      })
+    );
+
+    expect(logger.debug).toHaveBeenLastCalledWith(
+      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context true`
+    );
+  });
 });

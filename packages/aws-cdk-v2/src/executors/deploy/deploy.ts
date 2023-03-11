@@ -6,7 +6,6 @@ import { ParsedExecutorInterface } from '../../interfaces/parsed-executor.interf
 import { ExecutorContext } from '@nrwl/devkit';
 
 export interface ParsedDeployExecutorOption extends ParsedExecutorInterface {
-  parseArgs?: Record<string, string>;
   stacks?: string[];
   sourceRoot: string;
   root: string;
