@@ -33,7 +33,7 @@
     "@angular-devkit/architect": "0.1502.4",
     "@angular-devkit/core": "15.2.4",
     "@angular-devkit/schematics": "15.2.4",
-    "@commitlint/cli": "17.5.0",
+    "@commitlint/cli": "17.5.1",
     "@nrwl/cli": "15.8.9",
     "@nrwl/devkit": "15.8.9",
     "@nrwl/eslint-plugin-nx": "15.8.9",
