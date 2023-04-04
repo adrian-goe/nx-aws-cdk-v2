@@ -1,23 +1,16 @@
 import * as childProcess from 'child_process';
 import * as path from 'path';
 
-import { detectPackageManager, logger } from '@nrwl/devkit';
+import { logger } from '@nrwl/devkit';
 
 import { DestroyExecutorSchema } from './schema';
 import executor from './destroy';
-import { LARGE_BUFFER } from '../../utils/executor.util';
+import { generatePath, LARGE_BUFFER } from '../../utils/executor.util';
 import { mockExecutorContext } from '../../utils/testing';
 
 const options: DestroyExecutorSchema = {};
 
-const NX_WORKSPACE_ROOT = process.env.NX_WORKSPACE_ROOT ?? '';
-if (!NX_WORKSPACE_ROOT) {
-  throw new Error('CDK not Found');
-}
-
-const packageManager = detectPackageManager();
-const generatePath = `"${packageManager} dlx ts-node --require tsconfig-paths/register --project ${NX_WORKSPACE_ROOT}/tsconfig.base.json"`;
-const nodeCommandWithRelativePath = `node --require ts-node/register ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js -a ${generatePath} destroy`;
+const nodeCommandWithRelativePath = generatePath('destroy');
 
 describe('aws-cdk-v2 Destroy Executor', () => {
   const context = mockExecutorContext('destroy');
