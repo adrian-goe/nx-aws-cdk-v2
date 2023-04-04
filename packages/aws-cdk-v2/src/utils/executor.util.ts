@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 
 import { DeployExecutorSchema } from '../executors/deploy/schema';
 import { ParsedExecutorInterface } from '../interfaces/parsed-executor.interface';
-import { logger } from '@nrwl/devkit';
+import { logger, detectPackageManager } from '@nrwl/devkit';
 import { BootstrapExecutorSchema } from '../executors/bootstrap/schema';
 
 export const executorPropKeys = ['stacks'];
@@ -21,7 +21,10 @@ export function createCommand(command: string, options: ParsedExecutorInterface)
   if (!NX_WORKSPACE_ROOT) {
     throw new Error('CDK not Found');
   }
-  const nodeCommandWithRelativePath = `node ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js ${command}`;
+
+  const packageManager = detectPackageManager();
+  const generatePath = `"${packageManager} dlx ts-node --require tsconfig-paths/register --project ${NX_WORKSPACE_ROOT}/tsconfig.base.json"`;
+  const nodeCommandWithRelativePath = `node --require ts-node/register ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js -a ${generatePath} ${command}`;
   console.log('nodeCommandWithRelativePath', nodeCommandWithRelativePath);
   const commands = [nodeCommandWithRelativePath];
 

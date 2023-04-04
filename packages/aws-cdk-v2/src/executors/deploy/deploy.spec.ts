@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as childProcess from 'child_process';
-import { logger } from '@nrwl/devkit';
+import { detectPackageManager, logger } from '@nrwl/devkit';
 
 import executor from './deploy';
 import { DeployExecutorSchema } from './schema';
@@ -8,6 +8,15 @@ import { LARGE_BUFFER } from '../../utils/executor.util';
 import { mockExecutorContext } from '../../utils/testing';
 
 const options: DeployExecutorSchema = {};
+
+const NX_WORKSPACE_ROOT = process.env.NX_WORKSPACE_ROOT ?? '';
+if (!NX_WORKSPACE_ROOT) {
+  throw new Error('CDK not Found');
+}
+
+const packageManager = detectPackageManager();
+const generatePath = `"${packageManager} dlx ts-node --require tsconfig-paths/register --project ${NX_WORKSPACE_ROOT}/tsconfig.base.json"`;
+const nodeCommandWithRelativePath = `node --require ts-node/register ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js -a ${generatePath} deploy`;
 
 describe('aws-cdk-v2 deploy Executor', () => {
   const context = mockExecutorContext('deploy');
@@ -23,16 +32,14 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(options, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy`,
+      nodeCommandWithRelativePath,
       expect.objectContaining({
         cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
-    expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy`
-    );
+    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: ${nodeCommandWithRelativePath}`);
   });
 
   it('run cdk deploy command stack', async () => {
@@ -42,16 +49,14 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${stackName}`,
+      `${nodeCommandWithRelativePath} ${stackName}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${stackName}`
-    );
+    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: ${nodeCommandWithRelativePath} ${stackName}`);
   });
 
   it('run cdk deploy command context options', async () => {
@@ -61,7 +66,7 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`,
+      `${nodeCommandWithRelativePath} --context ${contextOptionString}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
@@ -69,7 +74,7 @@ describe('aws-cdk-v2 deploy Executor', () => {
     );
 
     expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context ${contextOptionString}`
+      `Executing command: ${nodeCommandWithRelativePath} --context ${contextOptionString}`
     );
   });
 
@@ -81,16 +86,14 @@ describe('aws-cdk-v2 deploy Executor', () => {
 
     const contextCmd = contextOptions.map((option) => `--context ${option}`).join(' ');
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${contextCmd}`,
+      `${nodeCommandWithRelativePath} ${contextCmd}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy ${contextCmd}`
-    );
+    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: ${nodeCommandWithRelativePath} ${contextCmd}`);
   });
 
   it('run cdk deploy command with boolean context option', async () => {
@@ -99,15 +102,13 @@ describe('aws-cdk-v2 deploy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context true`,
+      `${nodeCommandWithRelativePath} --context true`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js deploy --context true`
-    );
+    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: ${nodeCommandWithRelativePath} --context true`);
   });
 });
