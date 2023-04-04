@@ -5,12 +5,12 @@ import { logger } from '@nrwl/devkit';
 
 import { BootstrapExecutorSchema } from './schema';
 import executor from './bootstrap';
-import { generatePath, LARGE_BUFFER } from '../../utils/executor.util';
+import { generateCommandString, LARGE_BUFFER } from '../../utils/executor.util';
 import { mockExecutorContext } from '../../utils/testing';
 
 const options: BootstrapExecutorSchema = {};
 
-const nodeCommandWithRelativePath = generatePath('bootstrap');
+const nodeCommandWithRelativePath = generateCommandString('bootstrap', 'apps/proj');
 
 describe('aws-cdk-v2 Bootstrap Executor', () => {
   const context = mockExecutorContext('bootstrap');
@@ -28,7 +28,7 @@ describe('aws-cdk-v2 Bootstrap Executor', () => {
     expect(childProcess.exec).toHaveBeenCalledWith(
       nodeCommandWithRelativePath,
       expect.objectContaining({
-        cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
+        cwd: expect.stringContaining(context.root),
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })

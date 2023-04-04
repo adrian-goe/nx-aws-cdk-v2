@@ -4,12 +4,12 @@ import { logger } from '@nrwl/devkit';
 
 import executor from './deploy';
 import { DeployExecutorSchema } from './schema';
-import { generatePath, LARGE_BUFFER } from '../../utils/executor.util';
+import { generateCommandString, LARGE_BUFFER } from '../../utils/executor.util';
 import { mockExecutorContext } from '../../utils/testing';
 
 const options: DeployExecutorSchema = {};
 
-const nodeCommandWithRelativePath = generatePath('deploy');
+const nodeCommandWithRelativePath = generateCommandString('deploy', 'apps/proj');
 
 describe('aws-cdk-v2 deploy Executor', () => {
   const context = mockExecutorContext('deploy');
@@ -27,7 +27,7 @@ describe('aws-cdk-v2 deploy Executor', () => {
     expect(childProcess.exec).toHaveBeenCalledWith(
       nodeCommandWithRelativePath,
       expect.objectContaining({
-        cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
+        cwd: context.root,
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })

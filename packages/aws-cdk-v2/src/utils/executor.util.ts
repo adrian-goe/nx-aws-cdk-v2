@@ -13,10 +13,11 @@ if (!NX_WORKSPACE_ROOT) {
   throw new Error('CDK not Found');
 }
 
-export function generatePath(command: string) {
+export function generateCommandString(command: string, appPath: string) {
   const packageManager = detectPackageManager();
   const packageManagerExecutor = packageManager === 'npm' ? 'npx' : `${packageManager} dlx`;
-  const generatePath = `"${packageManagerExecutor} ts-node --require tsconfig-paths/register --project ${NX_WORKSPACE_ROOT}/tsconfig.base.json"`;
+  const projectPath = `${NX_WORKSPACE_ROOT}/${appPath}`;
+  const generatePath = `"${packageManagerExecutor} ts-node --require tsconfig-paths/register --project ${projectPath}/tsconfig.app.json ${projectPath}/src/main.ts"`;
   return `node --require ts-node/register ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js -a ${generatePath} ${command}`;
 }
 
@@ -30,7 +31,7 @@ export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchem
 export function createCommand(command: string, options: ParsedExecutorInterface): string {
   console.log('OptionsParsedExecutorInterface', JSON.stringify(options));
 
-  const nodeCommandWithRelativePath = generatePath(command);
+  const nodeCommandWithRelativePath = generateCommandString(command, options.root);
   console.log('nodeCommandWithRelativePath', nodeCommandWithRelativePath);
   const commands = [nodeCommandWithRelativePath];
 

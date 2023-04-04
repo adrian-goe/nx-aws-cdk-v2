@@ -5,12 +5,12 @@ import { logger } from '@nrwl/devkit';
 
 import { DestroyExecutorSchema } from './schema';
 import executor from './destroy';
-import { generatePath, LARGE_BUFFER } from '../../utils/executor.util';
+import { generateCommandString, LARGE_BUFFER } from '../../utils/executor.util';
 import { mockExecutorContext } from '../../utils/testing';
 
 const options: DestroyExecutorSchema = {};
 
-const nodeCommandWithRelativePath = generatePath('destroy');
+const nodeCommandWithRelativePath = generateCommandString('destroy', 'apps/proj');
 
 describe('aws-cdk-v2 Destroy Executor', () => {
   const context = mockExecutorContext('destroy');
@@ -28,7 +28,7 @@ describe('aws-cdk-v2 Destroy Executor', () => {
     expect(childProcess.exec).toHaveBeenCalledWith(
       nodeCommandWithRelativePath,
       expect.objectContaining({
-        cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
+        cwd: context.root,
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })

@@ -1,5 +1,3 @@
-import * as path from 'path';
-
 import { BootstrapExecutorSchema } from './schema';
 import { createCommand, parseArgs, runCommandProcess } from '../../utils/executor.util';
 import { ParsedExecutorInterface } from '../../interfaces/parsed-executor.interface';
@@ -23,7 +21,7 @@ export default async function runExecutor(options: BootstrapExecutorSchema, cont
 
 function runBootstrap(options: ParsedBootstrapExecutorOption, context: ExecutorContext) {
   const command = createCommand('bootstrap', options);
-  return runCommandProcess(command, path.join(context.root, options.root));
+  return runCommandProcess(command, context.root);
 }
 
 function normalizeOptions(options: BootstrapExecutorSchema, context: ExecutorContext): ParsedBootstrapExecutorOption {
