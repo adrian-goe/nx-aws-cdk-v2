@@ -2,11 +2,24 @@ import { exec } from 'child_process';
 
 import { DeployExecutorSchema } from '../executors/deploy/schema';
 import { ParsedExecutorInterface } from '../interfaces/parsed-executor.interface';
-import { logger } from '@nrwl/devkit';
+import { logger, detectPackageManager } from '@nrwl/devkit';
 import { BootstrapExecutorSchema } from '../executors/bootstrap/schema';
 
 export const executorPropKeys = ['stacks'];
 export const LARGE_BUFFER = 1024 * 1000000;
+
+const NX_WORKSPACE_ROOT = process.env.NX_WORKSPACE_ROOT ?? '';
+if (!NX_WORKSPACE_ROOT) {
+  throw new Error('CDK not Found');
+}
+
+export function generateCommandString(command: string, appPath: string) {
+  const packageManager = detectPackageManager();
+  const packageManagerExecutor = packageManager === 'npm' ? 'npx' : `${packageManager} dlx`;
+  const projectPath = `${NX_WORKSPACE_ROOT}/${appPath}`;
+  const generatePath = `"${packageManagerExecutor} ts-node --require tsconfig-paths/register --project ${projectPath}/tsconfig.app.json ${projectPath}/src/main.ts"`;
+  return `node --require ts-node/register ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js -a ${generatePath} ${command}`;
+}
 
 export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchema): Record<string, string | string[]> {
   const keys = Object.keys(options);
@@ -17,11 +30,8 @@ export function parseArgs(options: DeployExecutorSchema | BootstrapExecutorSchem
 
 export function createCommand(command: string, options: ParsedExecutorInterface): string {
   console.log('OptionsParsedExecutorInterface', JSON.stringify(options));
-  const NX_WORKSPACE_ROOT = process.env.NX_WORKSPACE_ROOT ?? '';
-  if (!NX_WORKSPACE_ROOT) {
-    throw new Error('CDK not Found');
-  }
-  const nodeCommandWithRelativePath = `node ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js ${command}`;
+
+  const nodeCommandWithRelativePath = generateCommandString(command, options.root);
   console.log('nodeCommandWithRelativePath', nodeCommandWithRelativePath);
   const commands = [nodeCommandWithRelativePath];
 

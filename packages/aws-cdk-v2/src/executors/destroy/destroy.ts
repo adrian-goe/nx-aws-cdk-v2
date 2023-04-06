@@ -23,7 +23,7 @@ export default async function runExecutor(options: DestroyExecutorSchema, contex
 
 function runDestroy(options: ParsedDestroyExecutorOption, context: ExecutorContext) {
   const command = createCommand('destroy', options);
-  return runCommandProcess(command, path.join(context.root, options.root));
+  return runCommandProcess(command, context.root);
 }
 
 function normalizeOptions(options: DestroyExecutorSchema, context: ExecutorContext): ParsedDestroyExecutorOption {

@@ -22,7 +22,7 @@ export default async function runExecutor(options: DeployExecutorSchema, context
 
 async function runDeploy(options: ParsedDeployExecutorOption, context: ExecutorContext) {
   const command = createCommand('deploy', options);
-  return runCommandProcess(command, path.join(context.root, options.root));
+  return runCommandProcess(command, context.root);
 }
 
 function normalizeOptions(options: DeployExecutorSchema, context: ExecutorContext): ParsedDeployExecutorOption {

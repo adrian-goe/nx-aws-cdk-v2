@@ -5,10 +5,12 @@ import { logger } from '@nrwl/devkit';
 
 import { DestroyExecutorSchema } from './schema';
 import executor from './destroy';
-import { LARGE_BUFFER } from '../../utils/executor.util';
+import { generateCommandString, LARGE_BUFFER } from '../../utils/executor.util';
 import { mockExecutorContext } from '../../utils/testing';
 
 const options: DestroyExecutorSchema = {};
+
+const nodeCommandWithRelativePath = generateCommandString('destroy', 'apps/proj');
 
 describe('aws-cdk-v2 Destroy Executor', () => {
   const context = mockExecutorContext('destroy');
@@ -24,17 +26,15 @@ describe('aws-cdk-v2 Destroy Executor', () => {
     await executor(options, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy`,
+      nodeCommandWithRelativePath,
       expect.objectContaining({
-        cwd: expect.stringContaining(path.join(context.root, context.workspace.projects['proj'].root)),
+        cwd: context.root,
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy`
-    );
+    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: ${nodeCommandWithRelativePath}`);
   });
 
   it('run cdk destroy command stack', async () => {
@@ -45,15 +45,13 @@ describe('aws-cdk-v2 Destroy Executor', () => {
     await executor(option, context);
 
     expect(childProcess.exec).toHaveBeenCalledWith(
-      `node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`,
+      `${nodeCommandWithRelativePath} ${stackName}`,
       expect.objectContaining({
         env: process.env,
         maxBuffer: LARGE_BUFFER,
       })
     );
 
-    expect(logger.debug).toHaveBeenLastCalledWith(
-      `Executing command: node ${process.env.NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js destroy ${stackName}`
-    );
+    expect(logger.debug).toHaveBeenLastCalledWith(`Executing command: ${nodeCommandWithRelativePath} ${stackName}`);
   });
 });
