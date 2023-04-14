@@ -26,7 +26,7 @@
   "dependencies": {
     "aws-cdk": "2.74.0",
     "aws-cdk-lib": "2.74.0",
-    "constructs": "10.1.309",
+    "constructs": "10.1.310",
     "tslib": "2.5.0"
   },
   "devDependencies": {
