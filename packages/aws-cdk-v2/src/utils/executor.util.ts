@@ -15,7 +15,7 @@ if (!NX_WORKSPACE_ROOT) {
 
 export function generateCommandString(command: string, appPath: string) {
   const packageManager = detectPackageManager();
-  const packageManagerExecutor = packageManager === 'npm' ? 'npx' : `${packageManager} dlx`;
+  const packageManagerExecutor = packageManager === 'npm' ? 'npx' : packageManager;
   const projectPath = `${NX_WORKSPACE_ROOT}/${appPath}`;
   const generatePath = `"${packageManagerExecutor} ts-node --require tsconfig-paths/register --project ${projectPath}/tsconfig.app.json ${projectPath}/src/main.ts"`;
   return `node --require ts-node/register ${NX_WORKSPACE_ROOT}/node_modules/aws-cdk/bin/cdk.js -a ${generatePath} ${command}`;

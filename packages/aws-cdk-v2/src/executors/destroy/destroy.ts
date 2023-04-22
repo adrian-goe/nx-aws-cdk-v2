@@ -1,5 +1,3 @@
-import * as path from 'path';
-
 import { DestroyExecutorSchema } from './schema';
 import { createCommand, parseArgs, runCommandProcess } from '../../utils/executor.util';
 import { ParsedExecutorInterface } from '../../interfaces/parsed-executor.interface';

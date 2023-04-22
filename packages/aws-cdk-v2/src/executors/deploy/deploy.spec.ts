@@ -1,4 +1,3 @@
-import * as path from 'path';
 import * as childProcess from 'child_process';
 import { logger } from '@nrwl/devkit';
 
