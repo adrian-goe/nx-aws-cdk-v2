@@ -1,7 +1,7 @@
 import { DeployExecutorSchema } from './schema';
 import { createCommand, runCommandProcess, parseArgs } from '../../utils/executor.util';
 import { ParsedExecutorInterface } from '../../interfaces/parsed-executor.interface';
-import { ExecutorContext } from '@nrwl/devkit';
+import { ExecutorContext } from '@nx/devkit';
 
 export interface ParsedDeployExecutorOption extends ParsedExecutorInterface {
   stacks?: string[];

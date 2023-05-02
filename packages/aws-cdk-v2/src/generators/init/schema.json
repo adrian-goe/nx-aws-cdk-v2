@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "id": "AwsCdkInit",
   "title": "Add AWS CDK Schematics",
   "type": "object",
@@ -8,7 +7,10 @@
     "unitTestRunner": {
       "description": "Adds the specified unit test runner",
       "type": "string",
-      "enum": ["jest", "none"],
+      "enum": [
+        "jest",
+        "none"
+      ],
       "default": "jest"
     },
     "skipFormat": {

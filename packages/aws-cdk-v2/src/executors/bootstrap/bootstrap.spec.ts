@@ -1,6 +1,6 @@
 import * as childProcess from 'child_process';
 
-import { logger } from '@nrwl/devkit';
+import { logger } from '@nx/devkit';
 
 import { BootstrapExecutorSchema } from './schema';
 import executor from './bootstrap';
