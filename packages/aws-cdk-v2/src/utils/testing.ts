@@ -1,4 +1,4 @@
-import { ExecutorContext } from '@nrwl/devkit';
+import { ExecutorContext } from '@nx/devkit';
 
 export function mockExecutorContext(executorName: string, workspaceVersion = 2): ExecutorContext {
   return {

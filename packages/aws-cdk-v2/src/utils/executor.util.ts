@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 
 import { DeployExecutorSchema } from '../executors/deploy/schema';
 import { ParsedExecutorInterface } from '../interfaces/parsed-executor.interface';
-import { logger, detectPackageManager } from '@nrwl/devkit';
+import { logger, detectPackageManager } from '@nx/devkit';
 import { BootstrapExecutorSchema } from '../executors/bootstrap/schema';
 
 export const executorPropKeys = ['stacks'];

@@ -1,7 +1,7 @@
 import { BootstrapExecutorSchema } from './schema';
 import { createCommand, parseArgs, runCommandProcess } from '../../utils/executor.util';
 import { ParsedExecutorInterface } from '../../interfaces/parsed-executor.interface';
-import { ExecutorContext } from '@nrwl/devkit';
+import { ExecutorContext } from '@nx/devkit';
 
 export interface ParsedBootstrapExecutorOption extends ParsedExecutorInterface {
   profile?: string;

@@ -1,5 +1,5 @@
-import { addDependenciesToPackageJson, convertNxGenerator, formatFiles, GeneratorCallback, Tree } from '@nrwl/devkit';
-import { jestInitGenerator } from '@nrwl/jest';
+import { addDependenciesToPackageJson, convertNxGenerator, formatFiles, GeneratorCallback, Tree } from '@nx/devkit';
+import { jestInitGenerator } from '@nx/jest';
 
 import { InitGeneratorSchema } from './schema';
 import { CDK_CONSTRUCTS_VERSION, CDK_ESLINT_VERSION, CDK_VERSION } from '../../utils/cdk-shared';
