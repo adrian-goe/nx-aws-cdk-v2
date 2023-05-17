@@ -30,9 +30,9 @@
     "tslib": "2.5.0"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1600.1",
-    "@angular-devkit/core": "16.0.1",
-    "@angular-devkit/schematics": "16.0.1",
+    "@angular-devkit/architect": "0.1600.2",
+    "@angular-devkit/core": "16.0.2",
+    "@angular-devkit/schematics": "16.0.2",
     "@commitlint/cli": "17.6.3",
     "@swc-node/register": "1.6.5",
     "@swc/core": "1.3.58",
