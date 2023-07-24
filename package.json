@@ -27,7 +27,7 @@
     "aws-cdk": "2.88.0",
     "aws-cdk-lib": "2.88.0",
     "constructs": "10.2.69",
-    "tslib": "2.6.0"
+    "tslib": "2.6.1"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.1601.5",
@@ -51,7 +51,7 @@
     "prettier": "3.0.0",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.1",
-    "tslib": "2.6.0",
+    "tslib": "2.6.1",
     "typescript": "5.1.6",
     "@nx/devkit": "16.5.5",
     "@nx/workspace": "16.5.5",
