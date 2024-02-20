@@ -40,7 +40,7 @@
     "@types/node": "20.11.19",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "dotenv": "16.4.4",
+    "dotenv": "16.4.5",
     "eslint": "8.56.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-plugin-cdk": "1.8.0",
