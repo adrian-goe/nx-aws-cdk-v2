@@ -52,7 +52,7 @@
     "ts-jest": "29.1.5",
     "ts-node": "10.9.2",
     "tslib": "2.6.3",
-    "typescript": "5.4.5",
+    "typescript": "5.5.2",
     "@nx/devkit": "16.7.4",
     "@nx/workspace": "16.7.4",
     "@nx/js": "16.7.4",
