@@ -24,8 +24,8 @@
   },
   "private": true,
   "dependencies": {
-    "aws-cdk": "2.162.0",
-    "aws-cdk-lib": "2.162.0",
+    "aws-cdk": "2.162.1",
+    "aws-cdk-lib": "2.162.1",
     "constructs": "10.3.2",
     "tslib": "2.7.0"
   },
