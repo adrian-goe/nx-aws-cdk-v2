@@ -32,7 +32,7 @@ function normalizeOptions(options: DeployExecutorSchema, context: ExecutorContex
   }
 
   // eslint-disable-next-line no-unsafe-optional-chaining
-  const { sourceRoot, root } = context?.workspace?.projects[context.projectName];
+  const { sourceRoot, root } = context.projectsConfigurations.projects[context.projectName];
 
   return {
     ...options,

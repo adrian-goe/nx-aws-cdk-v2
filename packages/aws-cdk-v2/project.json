@@ -50,7 +50,7 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["coverage/packages/aws-cdk-v2"],
+      "outputs": ["{workspaceRoot}/coverage/packages/aws-cdk-v2"],
       "options": {
         "jestConfig": "packages/aws-cdk-v2/jest.config.ts",
         "passWithNoTests": true

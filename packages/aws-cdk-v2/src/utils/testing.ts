@@ -5,7 +5,7 @@ export function mockExecutorContext(executorName: string, workspaceVersion = 2):
     projectName: 'proj',
     root: '/root',
     cwd: '/root',
-    workspace: {
+    projectsConfigurations: {
       version: workspaceVersion,
       projects: {
         proj: {
