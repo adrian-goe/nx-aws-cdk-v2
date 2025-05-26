@@ -4,3 +4,5 @@
 /coverage
 .idea
 .vscode
+
+/.nx/workspace-data
