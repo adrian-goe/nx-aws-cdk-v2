@@ -10,14 +10,13 @@ import {
   names,
   offsetFromRoot,
   ProjectConfiguration,
-  readWorkspaceConfiguration,
   Tree,
   updateJson,
   runTasksInSerial,
-  updateWorkspaceConfiguration,
+  updateProjectConfiguration,
 } from '@nx/devkit';
 import { jestProjectGenerator } from '@nx/jest';
-import { Linter, lintProjectGenerator } from '@nx/linter';
+import { Linter, lintProjectGenerator } from '@nx/eslint';
 
 import { ApplicationSchema } from './schema';
 import { initGenerator } from '../init/init';
@@ -122,9 +121,8 @@ export async function applicationGenerator(host: Tree, options: ApplicationSchem
     tags: normalizedOptions.parsedTags,
   };
   addProjectConfiguration(host, normalizedOptions.projectName, project);
-  const workspace = readWorkspaceConfiguration(host);
 
-  updateWorkspaceConfiguration(host, workspace);
+  updateProjectConfiguration(host, normalizedOptions.projectName, project);
   addFiles(host, normalizedOptions);
 
   if (normalizedOptions.linter !== Linter.None) {
