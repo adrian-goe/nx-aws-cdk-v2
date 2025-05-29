@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.2000.0",
-    "@angular-devkit/core": "19.2.14",
-    "@angular-devkit/schematics": "19.2.14",
+    "@angular-devkit/core": "20.0.0",
+    "@angular-devkit/schematics": "20.0.0",
     "@commitlint/cli": "19.8.1",
     "@swc-node/register": "1.10.10",
     "@swc/core": "1.11.29",
