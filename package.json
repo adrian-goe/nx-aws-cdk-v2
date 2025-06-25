@@ -45,7 +45,7 @@
     "eslint-config-prettier": "8.10.0",
     "eslint-plugin-cdk": "1.8.0",
     "eslint-plugin-json": "4.0.1",
-    "jest": "30.0.2",
+    "jest": "30.0.3",
     "jest-environment-jsdom": "30.0.2",
     "nx": "16.7.4",
     "prettier": "3.6.0",
