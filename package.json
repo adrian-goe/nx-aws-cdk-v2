@@ -37,7 +37,7 @@
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.14.0",
     "@types/jest": "30.0.0",
-    "@types/node": "24.9.2",
+    "@types/node": "24.10.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "dotenv": "17.2.3",
