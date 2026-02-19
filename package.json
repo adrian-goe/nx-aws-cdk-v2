@@ -33,7 +33,7 @@
     "@angular-devkit/architect": "0.2101.4",
     "@angular-devkit/core": "21.1.4",
     "@angular-devkit/schematics": "21.1.4",
-    "@commitlint/cli": "20.4.1",
+    "@commitlint/cli": "20.4.2",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.11",
     "@types/jest": "30.0.0",
