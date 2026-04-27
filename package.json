@@ -35,7 +35,7 @@
     "@angular-devkit/schematics": "21.2.8",
     "@commitlint/cli": "20.5.2",
     "@swc-node/register": "1.11.1",
-    "@swc/core": "1.15.30",
+    "@swc/core": "1.15.32",
     "@types/jest": "30.0.0",
     "@types/node": "24.12.2",
     "@typescript-eslint/eslint-plugin": "5.62.0",
