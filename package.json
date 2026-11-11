@@ -48,7 +48,7 @@
     "jest": "30.5.2",
     "jest-environment-jsdom": "30.5.2",
     "nx": "16.7.4",
-    "prettier": "3.9.10",
+    "prettier": "3.10.0",
     "ts-jest": "29.4.15",
     "ts-node": "10.9.2",
     "tslib": "2.9.1",
